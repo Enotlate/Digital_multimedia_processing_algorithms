@@ -5,41 +5,41 @@ import cv2
 ############# Задача 2 ####################
 
 # Расширения 3 шт
-extensions = ['.jpg', '.png', '.bmp']
-
-# Создания окна 3 шт
-window_flags = [cv2.WINDOW_NORMAL, cv2.WINDOW_AUTOSIZE, cv2.WINDOW_FULLSCREEN]
-
-# Чтение изображения 3 шт
-read_flags = [cv2.IMREAD_COLOR, cv2.IMREAD_GRAYSCALE, cv2.IMREAD_UNCHANGED]
-
-image_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Test\Screenshot_1.png'
-
-for ext in extensions:
-    for w_flag in window_flags:
-        for r_flag in read_flags:
-
-            image = cv2.imread(image_path, r_flag)
-
-
-            window_name = f'Image ({ext}, {w_flag}, {r_flag})'
-            cv2.namedWindow(window_name, w_flag)
-
-
-            cv2.imshow(window_name, image)
-
-
-            cv2.waitKey(0)
-
-
-            cv2.destroyWindow(window_name)
+# extensions = ['.jpg', '.png', '.bmp']
+#
+# # Создания окна 3 шт
+# window_flags = [cv2.WINDOW_NORMAL, cv2.WINDOW_AUTOSIZE, cv2.WINDOW_FULLSCREEN]
+#
+# # Чтение изображения 3 шт
+# read_flags = [cv2.IMREAD_COLOR, cv2.IMREAD_GRAYSCALE, cv2.IMREAD_UNCHANGED]
+#
+# image_path = r'Test/Screenshot_1.png'
+#
+# for ext in extensions:
+#     for w_flag in window_flags:
+#         for r_flag in read_flags:
+#
+#             image = cv2.imread(image_path, r_flag)
+#
+#
+#             window_name = f'Image ({ext}, {w_flag}, {r_flag})'
+#             cv2.namedWindow(window_name, w_flag)
+#
+#
+#             cv2.imshow(window_name, image)
+#
+#
+#             cv2.waitKey(0)
+#
+#
+#             cv2.destroyWindow(window_name)
 
 ############# Задача 3 ####################
 
-# # Путь
-# video_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Test\video.mp4'
+# Путь
+# video_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Lab1\Test\video.mp4'
 #
-
+#
 # cap = cv2.VideoCapture(video_path)
 #
 # # Проверка
@@ -52,7 +52,7 @@ for ext in extensions:
 # width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 # height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 #
-
+#
 # formats = [
 #     (width, height, cv2.COLOR_BGR2RGB),
 #     (int(width / 2), int(height / 2), cv2.COLOR_BGR2GRAY),
@@ -75,33 +75,33 @@ for ext in extensions:
 #         frame = cv2.resize(frame, (new_width, new_height))
 #         frame = cv2.cvtColor(frame, color_conv)
 #
-
+#
 #         cv2.imshow(window_name, frame)
 #
-
+#
 #         key = cv2.waitKey(int(1000 / fps)) & 0xFF
 #         if key == ord('q'):
 #             break
 #
-
+#
 #     cv2.destroyWindow(window_name)
 #
-
+#
 # cap.release()
 # cv2.destroyAllWindows()
 
 ############# Задача 4 ####################
 
 # # Путь к исходному видео
-# input_video_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Test\video.mp4'
+# input_video_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Lab1\Test\video.mp4'
 #
 # # Путь к выходному видео
-# output_video_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Test\output_video.avi'
+# output_video_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Lab1\Test\output_video.avi'
 #
-
+#
 # cap = cv2.VideoCapture(input_video_path)
 #
-
+#
 # width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 # height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 # fps = cap.get(cv2.CAP_PROP_FPS)
@@ -117,7 +117,7 @@ for ext in extensions:
 #         break
 #     out.write(frame)
 #
-
+#
 # cap.release()
 # out.release()
 
@@ -125,7 +125,7 @@ for ext in extensions:
 
 
 # # Путь
-# image_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Test\Screenshot_1.png'
+# image_path = r'C:\Users\bigal\PycharmProjects\ATSOM\Lab1\Test\Screenshot_1.png'
 #
 
 # image = cv2.imread(image_path)
@@ -185,7 +185,7 @@ for ext in extensions:
 # import os
 #
 #
-# output_dir = r'C:\Users\bigal\PycharmProjects\ATSOM\Test'
+# output_dir = r'C:\Users\bigal\PycharmProjects\ATSOM\Lab1\Test'
 # if not os.path.exists(output_dir):
 #     os.makedirs(output_dir)
 #
