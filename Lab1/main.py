@@ -177,60 +177,53 @@ import cv2
 
 ############# Задача 7 ####################
 
-# import os
-#
-# folder = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test'
-#
-# if not os.path.exists(folder):  # Проверка, существует ли папка
-#     os.makedirs(folder)
-#
-# cap = cv2.VideoCapture(0)
-#
-# width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # Ширина
-# height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # Высота
-# fps = cap.get(cv2.CAP_PROP_FPS)
-#
-# # Запись видео
-# fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Кодек для записи видео в MP4
-# out = cv2.VideoWriter(os.path.join(folder, 'Candy_video.mp4'), fourcc, fps, (width, height))
-#
-# while True:
-#     ret, frame = cap.read()
-#
-#
-#     out.write(frame)  # Запись кадра в выходной видеофайл
-#
-#     cv2.imshow('Camera', frame)
-#
-#     if cv2.waitKey(1) & 0xFF == 27:
-#         break
-#
-#
-# cap.release()
-# out.release()
-# cv2.destroyAllWindows()
-#
-# # Демонстрация записанного видео
-# cap = cv2.VideoCapture(os.path.join(folder, 'Candy_video.mp4'))  # Открытие записанного видео
-#
-# while True:  # Основной цикл воспроизведения видео
-#     # Считывание кадра с видео
-#     ret, frame = cap.read()
-#
-#     if not ret:  # Проверка, есть ли кадры для отображения
-#         break
-#
-#     cv2.imshow('Recorded Video', frame)  # Отображение кадра
-#
-#     # Уменьшение скорости воспроизведения
-#     cv2.waitKey(10)  # Задержка для замедления воспроизведения
-#
-#     if cv2.waitKey(1) & 0xFF == 27:
-#         break
-#
-# cap.release()
-# cv2.destroyAllWindows()
-#
+
+folder = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test'
+
+cap = cv2.VideoCapture(0)
+
+width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # Ширина
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # Высота
+fps = cap.get(cv2.CAP_PROP_FPS)
+
+# Запись видео
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Кодек для записи видео в MP4
+out = cv2.VideoWriter('Candy_video.mp4', fourcc, fps, (width, height))
+
+while True:
+    ret, frame = cap.read()
+
+
+    out.write(frame)  # Запись кадра в выходной видеофайл
+
+    cv2.imshow('Camera', frame)
+
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+
+cap.release()
+out.release()
+cv2.destroyAllWindows()
+
+
+cap = cv2.VideoCapture('Candy_video.mp4')
+
+while True:
+    ret, frame = cap.read()
+
+    if not ret:  # Проверка, есть ли кадры
+        break
+
+    cv2.imshow('Recorded Video', frame)  # Отображение кадра
+
+    # Уменьшение скорости воспроизведения
+
+    if cv2.waitKey(30) & 0xFF == 27:
+        break
+
+cap.release()
+cv2.destroyAllWindows()
 
 
 ############# Задача 8 ####################
@@ -274,7 +267,7 @@ import cv2
 #     cv2.imshow('Camera', frame)
 #
 #
-#     if cv2.waitKey(1) & 0xFF == 277:
+#     if cv2.waitKey(1) & 0xFF == 27:
 #         break
 #
 #
