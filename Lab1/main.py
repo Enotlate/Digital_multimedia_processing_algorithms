@@ -192,7 +192,7 @@ import cv2
 #
 # # Запись видео
 # fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Кодек для записи видео в MP4
-# out = cv2.VideoWriter(os.path.join(folder, 'output_video.mp4'), fourcc, fps, (width, height))
+# out = cv2.VideoWriter(os.path.join(folder, 'Candy_video.mp4'), fourcc, fps, (width, height))
 #
 # while True:
 #     ret, frame = cap.read()
