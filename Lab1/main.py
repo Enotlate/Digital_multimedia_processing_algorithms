@@ -284,26 +284,26 @@ import cv2
 
 ############# Задача 9 ####################
 
-# # URL-адрес камеры телефона
-# url = 'http://10.73.159.42:8080/video'
-#
+# URL-адрес камеры телефона
+url = 'http://10.6.225.7:8080/video'
 
-# cap = cv2.VideoCapture(url)
-#
-# while True:
-#     # Считывание кадра с камеры телефона
-#     ret, frame = cap.read()
-#
-#     # Отображение кадра
-#     cv2.imshow('Camera', frame)
-#
 
-#     if cv2.waitKey(1) & 0xFF == ord('q'):
-#         break
-#
+cap = cv2.VideoCapture(url)
 
-# cap.release()
-# cv2.destroyAllWindows()
-#
+while True:
+    # Считывание кадра с камеры телефона
+    ret, frame = cap.read()
+
+    # Отображение кадра
+    cv2.imshow('Camera', frame)
+
+
+    if cv2.waitKey(1) & 0xFF == 27:
+        break
+
+
+cap.release()
+cv2.destroyAllWindows()
+
 
 
