@@ -3,7 +3,7 @@
 import cv2
 
 ############# Задача 2 ####################
-# import cv2
+
 #
 # folder = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test/'
 #
@@ -18,6 +18,7 @@ import cv2
 # cv2.imshow('Cat1', img1)
 # cv2.imshow('Cat2', img2)
 # cv2.imshow('Dog1', img3)
+#
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
 
@@ -123,9 +124,7 @@ import cv2
 #
 
 # ############ Задача 6 ####################
-#
 
-# import cv2
 # import numpy as np
 #
 # cap = cv2.VideoCapture(0)
@@ -181,6 +180,7 @@ import cv2
 # import os
 #
 # folder = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test'
+#
 # if not os.path.exists(folder):  # Проверка, существует ли папка
 #     os.makedirs(folder)
 #
@@ -211,7 +211,7 @@ import cv2
 # cv2.destroyAllWindows()
 #
 # # Демонстрация записанного видео
-# cap = cv2.VideoCapture(os.path.join(folder, 'output_video.mp4'))  # Открытие записанного видео
+# cap = cv2.VideoCapture(os.path.join(folder, 'Candy_video.mp4'))  # Открытие записанного видео
 #
 # while True:  # Основной цикл воспроизведения видео
 #     # Считывание кадра с видео
@@ -225,12 +225,12 @@ import cv2
 #     # Уменьшение скорости воспроизведения
 #     cv2.waitKey(10)  # Задержка для замедления воспроизведения
 #
-#     if cv2.waitKey(1) & 0xFF == 27:  # Выход по нажатию клавиши 'Esc'
+#     if cv2.waitKey(1) & 0xFF == 27:
 #         break
 #
-# cap.release()  # Освобождение ресурсов видео
-# cv2.destroyAllWindows()  # Закрытие всех окон OpenCV
-
+# cap.release()
+# cv2.destroyAllWindows()
+#
 
 
 ############# Задача 8 ####################
@@ -284,26 +284,26 @@ import cv2
 
 ############# Задача 9 ####################
 
-# URL-адрес камеры телефона
-url = 'http://10.6.225.7:8080/video'
-
-
-cap = cv2.VideoCapture(url)
-
-while True:
-    # Считывание кадра с камеры телефона
-    ret, frame = cap.read()
-
-    # Отображение кадра
-    cv2.imshow('Camera', frame)
-
-
-    if cv2.waitKey(1) & 0xFF == 27:
-        break
-
-
-cap.release()
-cv2.destroyAllWindows()
+# # URL-адрес камеры телефона
+# url = 'http://10.6.225.7:8080/video'
+#
+#
+# cap = cv2.VideoCapture(url)
+#
+# while True:
+#     # Считывание кадра с камеры телефона
+#     ret, frame = cap.read()
+#
+#     # Отображение кадра
+#     cv2.imshow('Camera', frame)
+#
+#
+#     if cv2.waitKey(1) & 0xFF == 27:
+#         break
+#
+#
+# cap.release()
+# cv2.destroyAllWindows()
 
 
 
