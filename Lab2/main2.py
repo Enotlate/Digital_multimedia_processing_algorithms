@@ -72,7 +72,7 @@ while True:
         lastX = -1
         lastY = -1
     frame = cv2.add(frame, path)
-    print("Взлом жопы успешен")
+
 
     cv2.imshow('Result', frame)
     cv2.imshow('Threshold', frame_red)
