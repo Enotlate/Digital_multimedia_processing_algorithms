@@ -100,7 +100,6 @@ import cv2
 
 ############ Задача 5 ####################
 
-
 # # Путь
 # folder = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test/'
 #
@@ -134,12 +133,13 @@ import cv2
 # frame_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # Высота
 #
 # # Определение прямоугольных областей
-# rectangles = np.array([  # значения [x1, y1], [x2, y2]
+# rectangles = np.array(    [  # значения [x1, y1], [x2, y2]
 #     [[  0, 140], [260, 180]],
 #     [[110,   0], [150, 140]],
 #     [[110, 180], [150, 320]]
 # ])
 #
+# # Вычисление координат центра кадра
 # offset_x = frame_w // 2 - rectangles[:, :, 0].max() // 2  # Горизонтальное смещение прямоугольников
 # offset_y = frame_h // 2 - rectangles[:, :, 1].max() // 2  # Вертикальное смещение прямоугольников
 #
@@ -147,10 +147,6 @@ import cv2
 #     ret, frame = cap.read()
 #
 #     height, width, _ = frame.shape  # Получение размеров кадра
-#
-#     # Вычисление координат центра кадра
-#     center_x = width // 2
-#     center_y = height // 2
 #
 #     # Применение размытия к определенной области
 #     x1, y1 = rectangles[0][0]
@@ -178,52 +174,48 @@ import cv2
 ############# Задача 7 ####################
 
 
-folder = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test'
+# older = 'C:/Users/bigal/PycharmProjects/ATSOM/Lab1/Test'
+#
+# cap = cv2.VideoCapture(0)
+#
+# width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # Ширина
+# height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # Высота
+# fps = cap.get(cv2.CAP_PROP_FPS)
+#
+# # Запись видео
+# fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Кодек для записи видео в MP4
+# out = cv2.VideoWriter('Candy_video.mp4', fourcc, fps, (width, height))
+#
+# while True:
+#     ret, frame = cap.read()
+#
+#     out.write(frame)  # Запись кадра в выходной видеофайл
+#
+#     cv2.imshow('Camera', frame)
+#
+#     if cv2.waitKey(1) & 0xFF == 27:
+#         break
+#
+# cap.release()
+# out.release()
+# cv2.destroyAllWindows()
+#
+# cap = cv2.VideoCapture('Candy_video.mp4')
+#
+# while True:
+#     ret, frame = cap.read()
+#
+#     if not ret:  # Проверка, есть ли кадры
+#         break
+#
+#     cv2.imshow('Recorded Video', frame)  # Отображение кадра
+#
+#     if cv2.waitKey(30) & 0xFF == 27:
+#         break
+#
+# cap.release()
+# cv2.destroyAllWindows()
 
-cap = cv2.VideoCapture(0)
-
-width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))  # Ширина
-height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))  # Высота
-fps = cap.get(cv2.CAP_PROP_FPS)
-
-# Запись видео
-fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Кодек для записи видео в MP4
-out = cv2.VideoWriter('Candy_video.mp4', fourcc, fps, (width, height))
-
-while True:
-    ret, frame = cap.read()
-
-
-    out.write(frame)  # Запись кадра в выходной видеофайл
-
-    cv2.imshow('Camera', frame)
-
-    if cv2.waitKey(1) & 0xFF == 27:
-        break
-
-
-cap.release()
-out.release()
-cv2.destroyAllWindows()
-
-
-cap = cv2.VideoCapture('Candy_video.mp4')
-
-while True:
-    ret, frame = cap.read()
-
-    if not ret:  # Проверка, есть ли кадры
-        break
-
-    cv2.imshow('Recorded Video', frame)  # Отображение кадра
-
-    # Уменьшение скорости воспроизведения
-
-    if cv2.waitKey(30) & 0xFF == 27:
-        break
-
-cap.release()
-cv2.destroyAllWindows()
 
 
 ############# Задача 8 ####################
@@ -278,7 +270,7 @@ cv2.destroyAllWindows()
 ############# Задача 9 ####################
 
 # # URL-адрес камеры телефона
-# url = 'http://10.6.225.7:8080/video'
+# url = 'http://10.131.137.231:8080/video'
 #
 #
 # cap = cv2.VideoCapture(url)
@@ -298,5 +290,45 @@ cv2.destroyAllWindows()
 # cap.release()
 # cv2.destroyAllWindows()
 
+# import cv2
+# import numpy as np
+#
+# # Открытие камеры
+# cap = cv2.VideoCapture(0)
+#
+# while True:
+#     ret, frame = cap.read()
+#
+#     # Получение размеров кадра
+#     height, width, _ = frame.shape
+#
+#     # Вычисление координат центра кадра
+#     center_x = width // 2
+#     center_y = height // 2
+#
+#     # Рисование яблока
+#     # Красная часть
+#     cv2.ellipse(frame, (center_x, center_y), (50, 60), 0, 0, 360, (0, 0, 255), -1)
+#     # Зеленый хвостик
+#     cv2.ellipse(frame, (center_x, center_y - 70), (10, 20), 0, 0, 360, (0, 255, 0), -1)
+#
+#
+#     # Вырезание кусочка из яблока
+#     # Координаты и размеры кусочка
+#     chunk_x = center_x + 20
+#     chunk_y = center_y
+#     chunk_width = 60
+#     chunk_height = 80
+#     # Рисование кусочка
+#     cv2.ellipse(frame, (chunk_x, chunk_y), (chunk_width // 2, chunk_height // 2), 0, 0, 360, (255, 255, 255), -1)
+#
+#     cv2.imshow('Camera', frame)
+#
+#     if cv2.waitKey(1) & 0xFF == 27:
+#         break
+#
+# cap.release()
+# cv2.destroyAllWindows()
+#
 
 
